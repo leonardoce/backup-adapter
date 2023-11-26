@@ -1,0 +1,23 @@
+syntax = "proto3";
+package adapter.v1;
+option go_package = "github.com/leonardoce/pkg/adapter";
+
+service WalManager {
+    rpc ArchiveWal(ArchiveWalRequest) returns (ArchiveWalResult) {}
+    rpc RestoreWal(RestoreWalRequest) returns (RestoreWalResult) {}
+}
+
+message ArchiveWalRequest {
+    string clusterName = 1;
+    string sourceFileName = 2;
+}
+
+message ArchiveWalResult {}
+
+message RestoreWalRequest {
+    string clusterName = 1;
+    string sourceWalName = 2;
+    string destinationFileName = 3;
+}
+
+message RestoreWalResult {}
