@@ -7,6 +7,10 @@ service WalManager {
     rpc RestoreWal(RestoreWalRequest) returns (RestoreWalResult) {}
 }
 
+service BackupManager {
+    rpc Backup(BackupRequest) returns (BackupResult) {}
+}
+
 message ArchiveWalRequest {
     string clusterName = 1;
     string sourceFileName = 2;
@@ -23,3 +27,10 @@ message RestoreWalRequest {
 }
 
 message RestoreWalResult {}
+
+message BackupRequest {
+    string clusterName = 1;
+    map<string, string> parameters = 3;
+}
+
+message BackupResult {}
