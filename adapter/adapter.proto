@@ -30,7 +30,10 @@ message RestoreWalResult {}
 
 message BackupRequest {
     string clusterName = 1;
+    bool isPrimary = 2;
     map<string, string> parameters = 3;
 }
 
-message BackupResult {}
+message BackupResult {
+    string info = 1;
+}
